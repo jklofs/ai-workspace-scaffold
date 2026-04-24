@@ -1,0 +1,10 @@
+# Repos
+# Track submodule entries under repos/ explicitly.
+
+# Env
+.env
+.claude/
+
+# Files
+plan
+.DS_Store

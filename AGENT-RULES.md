@@ -1,0 +1,72 @@
+# Project Agent Rules
+
+This repository uses [LLM-WIKI.md](LLM-WIKI.md) as the upstream pattern reference. Keep `LLM-WIKI.md` close to upstream; put local operating rules here.
+
+## Local Structure
+
+```text
+project-root/
+├── repos/           # Code repositories, typically linked as git submodules
+├── workspaces/      # Project workspaces with lifecycle documents
+└── wiki/            # Persistent knowledge
+```
+
+- `workspaces/<project>/` is the planning workspace for that project
+- The upstream `raw/` idea is expanded here into phase-specific workspace directories
+- `wiki/` stores reusable cross-project knowledge
+- All persistent files are in English and use kebab-case file names
+
+## Reuse Intent
+
+- This architecture is intended to be reusable across multiple projects over time
+- Keep shared process language generic unless a rule is truly project-specific
+- Put project-specific planning and delivery detail in the relevant workspace, not in shared rules
+- Sink only stable, reusable conclusions into `wiki/`
+
+## Wiki Role
+
+Treat `wiki/` primarily as a knowledge base. Use it for research, summaries, product context, technical context, and reusable conclusions.
+
+Do not rely on `wiki/` as the primary source for agent behavior. Hard operating rules belong in this file.
+
+## Source Priority
+
+Use this order when working:
+
+1. This file for agent operating rules
+2. Relevant knowledge pages in `wiki/`
+3. Relevant project workspace in `workspaces/`
+4. Code in `repos/`
+
+Do not treat "wiki first" as "read every wiki page first".
+Use `wiki/` for persistent knowledge, then consult the relevant workspace for current-project context, plans, and source material.
+
+## Hard Rules
+
+- Before any commit, propose the commit message and wait for user approval
+- Follow Conventional Commits when committing
+- Commit messages must be in English, concise, and without Chinese
+- Do not amend, rewrite, or undo commits unless the user explicitly approves it
+- Treat `wiki/` as guidance for understanding; do not promote wiki pages into hard rules unless this file is updated
+
+## Repository Boundaries
+
+- This repository manages knowledge, workspace documents, and shared agent rules
+- Repositories under `repos/` are implementation targets and keep their own independent git history
+- Prefer linking implementation repositories under `repos/` as git submodules
+- When implementation work from `workspaces/` is applied to a repository under `repos/`, review and commit the code changes inside that target repository
+- When a submodule moves to a new commit, commit the submodule pointer update in this repository
+- Only commit in this repository when changing the knowledge system, workspace documents, shared agent instructions, or submodule pointers
+
+## Submodule Workflow
+
+- Add implementation repositories with `git submodule add <repo-url> repos/<repo-name>`
+- Prefer portable submodule URLs in `.gitmodules`, such as relative URLs when repos share the same remote owner
+- Clone this repository with submodules using `git clone --recurse-submodules <repo-url>`
+- If already cloned, initialize submodules with `git submodule update --init --recursive`
+- Commit code changes inside the target repository under `repos/`
+- Then return to this repository and commit the updated submodule pointer when the parent should reference the new implementation commit
+
+## Operating Rules
+
+- Prefer updating shared local rules in `AGENT-RULES.md`; keep upstream ideas in `LLM-WIKI.md`

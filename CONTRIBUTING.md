@@ -11,13 +11,13 @@ Read:
 1. `LLM-WIKI.md`
 2. `WIKI-SCHEMA.md`
 3. `AGENT-RULES.md`
-4. `workspaces/scaffold-maintenance/README.md`
+4. `workspaces/scaffold/README.md`
 
 ## What Belongs Where
 
 - Hard AI operating rules: `AGENT-RULES.md`
 - Local workflow schema: `WIKI-SCHEMA.md`
-- Active scaffold changes: `workspaces/scaffold-maintenance/`
+- Active scaffold changes: `workspaces/scaffold/`
 - Reusable knowledge: `wiki/`
 - Reusable templates: `templates/`
 - Utility scripts: `scripts/`

@@ -1,7 +1,7 @@
 ---
 title: Scaffold Health Checks
-source: workspaces/scaffold-maintenance/
-see-also: [scaffold-maintenance.md, ../workflow/llm-wiki-operations.md]
+source: workspaces/scaffold/
+see-also: [scaffold.md, ../workflow/llm-wiki-operations.md]
 created: 2026-05-05
 updated: 2026-05-05
 tags: [scaffold, lint, health-checks, maintenance]

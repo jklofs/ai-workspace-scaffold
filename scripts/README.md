@@ -59,7 +59,7 @@ Run a preview first:
 
 Use `--force` only when the target project intentionally wants to replace its local scaffold files with the newer scaffold versions.
 
-The update command does not copy reference workspaces such as `workspaces/foundation/` or `workspaces/scaffold-maintenance/`. User workspaces are project-owned data and must not be overwritten by scaffold updates.
+The update command does not copy the reference workspace `workspaces/scaffold/`. User workspaces are project-owned data and must not be overwritten by scaffold updates.
 
 ## Lint Scaffold
 

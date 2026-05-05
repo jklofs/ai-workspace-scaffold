@@ -4,7 +4,7 @@
 **Date Captured:** 2026-05-05
 **Author / Requestor:** Project maintainer
 **Captured By:** AI agent
-**Related Workspace:** scaffold-maintenance
+**Related Workspace:** scaffold
 
 ## Original Content
 

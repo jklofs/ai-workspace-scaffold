@@ -89,7 +89,7 @@ raw-input -> discovery -> context -> requirements -> tech-spec -> implementation
 - [WIKI-SCHEMA.md](WIKI-SCHEMA.md)：本地工作流 schema
 - [AGENT-RULES.md](AGENT-RULES.md)：AI agent 硬性规则
 - [scripts/README.md](scripts/README.md)：脚本说明
-- [workspaces/scaffold-maintenance/](workspaces/scaffold-maintenance/)：维护脚手架自身的 workspace
+- [workspaces/scaffold/](workspaces/scaffold/)：维护脚手架自身的 workspace
 - [wiki/index.md](wiki/index.md)：长期知识索引
 
 ## 目录结构
@@ -154,7 +154,7 @@ CLAIMS-TICKET-001
 
 ## 项目状态
 
-项目处于早期但可用状态。这个脚手架刻意保持轻量、文档优先，后续会通过 `workspaces/scaffold-maintenance/` 演进。
+项目处于早期但可用状态。这个脚手架刻意保持轻量、文档优先，后续会通过 `workspaces/scaffold/` 演进。
 
 ## License
 

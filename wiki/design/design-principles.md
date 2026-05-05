@@ -1,9 +1,9 @@
 ---
 title: Design Principles
-source: workspaces/foundation/raw-input/claude-artifacts-design-prompt.md
+source: workspaces/scaffold/raw-input/claude-artifacts-design-prompt.md
 created: 2026-04-17
 updated: 2026-04-17
-tags: [design, principles, ui, foundation]
+tags: [design, principles, ui, scaffold]
 ---
 
 # Design Principles
@@ -59,6 +59,6 @@ Avoid these common AI-generated design tropes:
 
 ## Source
 
-- Raw input: `workspaces/foundation/raw-input/claude-artifacts-design-prompt.md`
+- Raw input: `workspaces/scaffold/raw-input/claude-artifacts-design-prompt.md`
 - Origin: Claude Artifacts (claude.ai/artifacts) system prompt, April 2025
 - Note: The original prompt includes platform-specific tooling (React+Babel inline JSX, starter components, verification agents) that is not directly applicable to this project. Only the design principles and methodology are extracted here.

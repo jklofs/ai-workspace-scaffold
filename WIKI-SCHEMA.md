@@ -554,7 +554,7 @@ The update workflow must be non-destructive by default:
 - leave identical files unchanged
 - write candidate updates under `.scaffold-updates/<timestamp>/` when local files differ
 - do not overwrite user workspaces
-- do not copy reference workspaces such as `workspaces/foundation/` or `workspaces/scaffold-maintenance/`
+- do not copy the reference workspace `workspaces/scaffold/`
 - require an explicit force option before replacing local scaffold files
 
 ## Review Gates

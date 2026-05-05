@@ -1,6 +1,6 @@
 ---
 title: Git Workflow
-source: workspaces/foundation/raw-input/git-workflow.md
+source: workspaces/scaffold/raw-input/git-workflow.md
 created: 2026-04-17
 updated: 2026-04-17
 tags: [git, workflow, conventions]

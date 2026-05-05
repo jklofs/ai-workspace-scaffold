@@ -1,7 +1,7 @@
 ---
 title: LLM Wiki Operations
 source: WIKI-SCHEMA.md
-see-also: [ai-first-development.md, ../conventions/project-conventions.md, ../scaffold/scaffold-maintenance.md]
+see-also: [ai-first-development.md, ../conventions/project-conventions.md, ../scaffold/scaffold.md]
 created: 2026-05-05
 updated: 2026-05-05
 tags: [llm-wiki, ingest, query, lint, schema]

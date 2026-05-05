@@ -1,10 +1,10 @@
 ---
 title: Project Conventions
-source: workspaces/foundation/raw-input/conventions.md
+source: workspaces/scaffold/raw-input/conventions.md
 see-also: [git-commit.md, git-workflow.md, ../workflow/ai-first-development.md]
 created: 2026-04-16
 updated: 2026-04-16
-tags: [conventions, standards, foundation]
+tags: [conventions, standards, scaffold]
 ---
 
 # Project Conventions

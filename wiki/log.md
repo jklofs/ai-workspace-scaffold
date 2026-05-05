@@ -43,7 +43,7 @@
 ## [2026-05-05] ingest | Added scaffold maintenance knowledge and wiki directories
 
 - Reorganized wiki pages into topic directories: `workflow/`, `conventions/`, `design/`, and `scaffold/`
-- Added `scaffold/scaffold-maintenance.md` from `workspaces/scaffold-maintenance/`
+- Added `scaffold/scaffold.md` from `workspaces/scaffold/`
 - Updated wiki index for nested page paths
 - Recorded that durable scaffold maintenance conclusions must be ingested into the wiki
 

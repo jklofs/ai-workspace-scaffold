@@ -32,5 +32,4 @@ Reusable knowledge produced during projects sinks to `wiki/`.
 
 | Workspace | Description | Status |
 |-----------|-------------|--------|
-| [foundation](./foundation/) | Shared conventions and initialization guidance | Persistent |
-| [scaffold-maintenance](./scaffold-maintenance/) | Maintenance workspace for the project scaffold; also serves as a complete lifecycle reference | Active |
+| [scaffold](./scaffold/) | Shared conventions, initialization guidance, and maintenance workspace for the project scaffold | Active |

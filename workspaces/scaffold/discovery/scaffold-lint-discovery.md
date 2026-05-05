@@ -15,7 +15,7 @@
 
 | Source | Notes |
 |--------|-------|
-| ../raw-input/example-request.md | Example source request |
+| ../raw-input/scaffold-lint-request.md | Example source request |
 | ../../templates/workspace/ | Defines expected workspace phase coverage |
 | ../../WIKI-SCHEMA.md | Defines schema and lifecycle expectations |
 
@@ -47,5 +47,5 @@ Build a small shell script under `scripts/` that validates scaffold structure an
 
 ## Wiki Promotion Candidates
 
-- [x] wiki/scaffold/scaffold-maintenance.md — Scaffold health checks should preserve flexible workflows and avoid over-enforcing lifecycle order.
+- [x] wiki/scaffold/scaffold.md — Scaffold health checks should preserve flexible workflows and avoid over-enforcing lifecycle order.
 - [x] wiki/scaffold/scaffold-health-checks.md — Scaffold linting should check structural drift but not claim to validate content quality.

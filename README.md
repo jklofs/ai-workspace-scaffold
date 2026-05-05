@@ -89,7 +89,7 @@ Update an existing project from a newer scaffold checkout without overwriting lo
 - [WIKI-SCHEMA.md](WIKI-SCHEMA.md) — local operating schema
 - [AGENT-RULES.md](AGENT-RULES.md) — hard rules for AI agents
 - [scripts/README.md](scripts/README.md) — script usage
-- [workspaces/scaffold-maintenance/](workspaces/scaffold-maintenance/) — persistent workspace for maintaining this scaffold
+- [workspaces/scaffold/](workspaces/scaffold/) — persistent workspace for maintaining this scaffold
 - [wiki/index.md](wiki/index.md) — persistent knowledge index
 
 ## Repository Layout
@@ -154,7 +154,7 @@ When finishing work, update the active workspace handoff, run the ingest queue, 
 
 ## Project Status
 
-This project is early but usable. The scaffold is intentionally lightweight and document-first. Expect the workflow to evolve through `workspaces/scaffold-maintenance/`.
+This project is early but usable. The scaffold is intentionally lightweight and document-first. Expect the workflow to evolve through `workspaces/scaffold/`.
 
 ## License
 

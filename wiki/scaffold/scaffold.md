@@ -1,21 +1,21 @@
 ---
-title: Scaffold Maintenance Workspace
-source: workspaces/scaffold-maintenance/
+title: Scaffold Workspace
+source: workspaces/scaffold/
 see-also: [../workflow/ai-first-development.md, ../workflow/llm-wiki-operations.md]
 created: 2026-05-05
 updated: 2026-05-05
-tags: [scaffold, maintenance, workspace, self-bootstrapping]
+tags: [scaffold, workspace, self-bootstrapping]
 ---
 
-# Scaffold Maintenance Workspace
+# Scaffold Workspace
 
-`workspaces/scaffold-maintenance/` is the persistent workspace for maintaining this project scaffold.
+`workspaces/scaffold/` is the persistent workspace for maintaining this project scaffold.
 
-It is not only an example. It is the operational workspace for changes to the scaffold itself, including schema, templates, scripts, wiki operations, workspace structure, and documentation.
+It is not only an example. It is the operational workspace for changes to the scaffold itself, including conventions, schema, templates, scripts, wiki operations, workspace structure, and documentation.
 
 ## Role
 
-Use `scaffold-maintenance` when changing:
+Use `scaffold` when changing:
 
 - `WIKI-SCHEMA.md`
 - `AGENT-RULES.md`
@@ -40,9 +40,9 @@ The full path is useful when the scaffold change is broad or educational. Smalle
 
 ## Wiki Ingest Rule
 
-When scaffold maintenance creates stable reusable knowledge, run an ingest step:
+When scaffold work creates stable reusable knowledge, run an ingest step:
 
-1. Identify the durable conclusion from `workspaces/scaffold-maintenance/`.
+1. Identify the durable conclusion from `workspaces/scaffold/`.
 2. Add or update the relevant wiki page under a topic directory.
 3. Update `wiki/index.md`.
 4. Append `wiki/log.md`.
@@ -52,6 +52,6 @@ If a maintenance change affects how agents should behave, update `WIKI-SCHEMA.md
 ## Current Durable Conclusions
 
 - The wiki should use topic directories instead of a single flat namespace.
-- `scaffold-maintenance` is the persistent workspace for evolving the scaffold.
+- `scaffold` is the persistent workspace for evolving the scaffold.
 - Scaffold changes should be self-bootstrapped through workspace documents when useful.
-- Durable conclusions from scaffold maintenance should be ingested into the wiki.
+- Durable conclusions from scaffold work should be ingested into the wiki.

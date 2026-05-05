@@ -1,7 +1,7 @@
 ---
 title: Open Source Readiness
-source: workspaces/scaffold-maintenance/
-see-also: [scaffold-maintenance.md, scaffold-health-checks.md]
+source: workspaces/scaffold/
+see-also: [scaffold.md, scaffold-health-checks.md]
 created: 2026-05-05
 updated: 2026-05-05
 tags: [scaffold, open-source, maintenance]

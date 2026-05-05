@@ -48,4 +48,4 @@
 
 ## Wiki Promotion Candidates
 
-- [x] wiki/scaffold/scaffold-maintenance.md — Scaffold maintenance is the persistent workspace for evolving this project scaffold.
+- [x] wiki/scaffold/scaffold.md — Scaffold maintenance is the persistent workspace for evolving this project scaffold.

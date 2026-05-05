@@ -45,7 +45,7 @@ is_managed_path() {
 
 is_excluded_path() {
   case "$1" in
-    .git/*|.scaffold-updates/*|workspaces/foundation/*|workspaces/scaffold-maintenance/*|repos/*/.git/*)
+    .git/*|.scaffold-updates/*|workspaces/scaffold/*|repos/*/.git/*)
       return 0
       ;;
     *)

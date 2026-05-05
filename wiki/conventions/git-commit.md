@@ -1,6 +1,6 @@
 ---
 title: Git Commit
-source: workspaces/foundation/raw-input/git-commit.md
+source: workspaces/scaffold/raw-input/git-commit.md
 reference: https://www.conventionalcommits.org/en/v1.0.0/
 created: 2026-04-16
 updated: 2026-04-16

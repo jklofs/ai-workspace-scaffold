@@ -33,7 +33,7 @@ case "$command" in
     ;;
   ingest)
     shift
-    update_ingest_queue "$@"
+    generate_ingest_queue "$@"
     ;;
   -h|--help|"")
     usage

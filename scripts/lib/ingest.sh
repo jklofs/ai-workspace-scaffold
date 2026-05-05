@@ -1,4 +1,4 @@
-update_ingest_queue() {
+generate_ingest_queue() {
   local queue="$SCAFFOLD_ROOT/wiki/ingest-queue.md"
   local tmp=""
   local count=0

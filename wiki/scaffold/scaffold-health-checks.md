@@ -25,7 +25,9 @@ Run:
 
 - Required root files exist.
 - Required root directories exist.
+- Scaffold scripts that users or maintainers run are executable.
 - Workspace root `README.md` files exist.
+- Workspace root `README.md` files do not still contain template placeholders.
 - Standard workspace phase directories have `README.md` files.
 - Non-index wiki pages are listed in `wiki/index.md`.
 - Ignored local noise files such as `.DS_Store` are reported as warnings.

@@ -2,7 +2,7 @@
 
 Utility scripts for operating this scaffold.
 
-`scaffold.sh` is the only user-facing script. Files under `scripts/lib/` are internal implementation modules sourced by `scaffold.sh`; call the top-level command instead of calling library files directly.
+`scaffold.sh` is the only user-facing scaffold command. Files under `scripts/lib/` are internal implementation modules sourced by `scaffold.sh`; call the top-level command instead of calling library files directly.
 
 ## Create Workspace
 
@@ -45,7 +45,7 @@ Run a structural health check:
 ./scripts/scaffold.sh lint
 ```
 
-This checks required root files, workspace phase README files, template coverage, wiki index coverage, ignored local noise files, and `git diff --check`.
+This checks required root files, executable scaffold scripts, workspace phase README files, template coverage, workspace root README placeholders, wiki index coverage, ignored local noise files, and `git diff --check`.
 
 ## Generate Ingest Queue
 
@@ -65,3 +65,14 @@ Workspace documents can include:
 ```
 
 Unchecked items are collected into `wiki/ingest-queue.md`.
+
+## Agent Launch Helpers
+
+Launch Codex or Claude from the scaffold root with elevated local permissions:
+
+```sh
+./scripts/codex.sh
+./scripts/claude.sh
+```
+
+These helpers are convenience wrappers for local maintainer use. They forward any extra arguments to the underlying CLI.

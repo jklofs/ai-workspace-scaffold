@@ -53,13 +53,19 @@ Short description of the module, feature, or project.
 
 ## Key Documents
 
-- [raw-input/<topic-slug>.md](raw-input/<topic-slug>.md)
-- [discovery/<topic-slug>.md](discovery/<topic-slug>.md)
-- [context/<topic-slug>.md](context/<topic-slug>.md)
-- [requirements/<topic-slug>.md](requirements/<topic-slug>.md)
-- [tech-spec/<topic-slug>.md](tech-spec/<topic-slug>.md)
-- [implementation/<topic-slug>.md](implementation/<topic-slug>.md)
-- [review/<topic-slug>.md](review/<topic-slug>.md)
+| Document | Purpose |
+|----------|---------|
+| | |
+
+Example document paths:
+
+```text
+raw-input/<topic-slug>.md
+requirements/<topic-slug>.md
+tech-spec/<topic-slug>.md
+implementation/<topic-slug>.md
+review/<topic-slug>.md
+```
 
 ## Related Workspaces
 

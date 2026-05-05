@@ -22,8 +22,38 @@ lint_scaffold() {
     [ -f "$SCAFFOLD_ROOT/$1" ] || fail "Missing file: $1"
   }
 
+  require_executable() {
+    [ -x "$SCAFFOLD_ROOT/$1" ] || fail "Missing executable file: $1"
+  }
+
   require_dir() {
     [ -d "$SCAFFOLD_ROOT/$1" ] || fail "Missing directory: $1"
+  }
+
+  warn_unfilled_workspace_readme() {
+    local file="$1"
+    local rel_path="$2"
+    local pattern=""
+
+    for pattern in \
+      "Short description of the module, feature, or project." \
+      "<person or agent>" \
+      "[One clear sentence describing the desired outcome.]" \
+      "[What this workspace covers]" \
+      "[What this workspace intentionally excludes]" \
+      "[raw-input | discovery | context | requirements | tech-spec | implementation | review]" \
+      "<why this workspace uses this amount of process>" \
+      "[Where the work currently stands.]" \
+      "[Confirmed fact or decision]" \
+      "[Missing information or unresolved question]" \
+      "[The next action a human or AI should take.]" \
+      "[Most important file to read first]" \
+      "[The immediate next action.]"; do
+      if grep -Fq "$pattern" "$file"; then
+        warn "Workspace README still contains template placeholder: $rel_path"
+        return
+      fi
+    done
   }
 
   require_file "LLM-WIKI.md"
@@ -38,6 +68,9 @@ lint_scaffold() {
   require_file "wiki/log.md"
   require_file "wiki/ingest-queue.md"
   require_file "templates/workspace-root.md"
+  require_executable "scripts/scaffold.sh"
+  require_executable "scripts/codex.sh"
+  require_executable "scripts/claude.sh"
   require_dir "templates/workspace"
   require_dir "workspaces"
   require_dir "repos"
@@ -50,6 +83,9 @@ lint_scaffold() {
     [ -d "$workspace" ] || continue
     name="$(basename "$workspace")"
     [ -f "$workspace/README.md" ] || fail "Workspace missing README: workspaces/$name"
+    if [ -f "$workspace/README.md" ]; then
+      warn_unfilled_workspace_readme "$workspace/README.md" "workspaces/$name/README.md"
+    fi
     if is_generic_name "$name"; then
       fail "Workspace name is too generic: workspaces/$name"
     fi
@@ -102,10 +138,14 @@ lint_scaffold() {
     fi
   done < <(find "$SCAFFOLD_ROOT" -path "$SCAFFOLD_ROOT/.git" -prune -o \( -name '.DS_Store' -o -name 'Thumbs.db' \) -print | sort)
 
-  diff_check_output="$(git -C "$SCAFFOLD_ROOT" diff --check || true)"
-  if [ "$diff_check_output" != "" ]; then
-    printf '%s\n' "$diff_check_output" >&2
-    fail "git diff --check reported whitespace or conflict-marker issues"
+  if git -C "$SCAFFOLD_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    diff_check_output="$(git -C "$SCAFFOLD_ROOT" diff --check || true)"
+    if [ "$diff_check_output" != "" ]; then
+      printf '%s\n' "$diff_check_output" >&2
+      fail "git diff --check reported whitespace or conflict-marker issues"
+    fi
+  else
+    warn "Not a git repository; skipping git diff --check"
   fi
 
   if [ "$status" -eq 0 ]; then

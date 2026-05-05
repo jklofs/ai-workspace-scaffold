@@ -215,11 +215,11 @@ Creates a workspace from `templates/workspace/`.
 ./scripts/scaffold.sh lint
 ```
 
-Checks scaffold structure, workspace phase README files, wiki index coverage, ingest queue presence, and `git diff --check`.
+Checks scaffold structure, executable scaffold scripts, workspace phase README files, workspace root README placeholders, wiki index coverage, ingest queue presence, and `git diff --check`.
 
 This is a structural guard. It does not prove that document content is complete or correct.
 
-### Update Ingest Queue
+### Generate Ingest Queue
 
 ```sh
 ./scripts/scaffold.sh ingest

@@ -215,11 +215,11 @@ workspace 文档可以包含：
 ./scripts/scaffold.sh lint
 ```
 
-检查脚手架结构、workspace 阶段 README、wiki index 覆盖、ingest queue 是否存在，以及 `git diff --check`。
+检查脚手架结构、可执行 scaffold 脚本、workspace 阶段 README、workspace 根 README 占位符、wiki index 覆盖、ingest queue 是否存在，以及 `git diff --check`。
 
 这是结构检查，不代表文档内容完整或正确。
 
-### Update Ingest Queue
+### Generate Ingest Queue
 
 ```sh
 ./scripts/scaffold.sh ingest

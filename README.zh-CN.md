@@ -16,7 +16,7 @@ AI Workspace Scaffold 给这些工作一个稳定结构：
 - `wiki/`：长期可复用知识
 - `repos/`：实现代码仓库，通常通过 git submodule 接入
 - `templates/`：可复用的 workspace 文档模板
-- `scripts/`：创建 workspace、检查脚手架、维护 wiki ingest queue 的工具
+- `scripts/`：脚手架 CLI
 
 ## 核心思路
 
@@ -74,15 +74,6 @@ raw-input -> discovery -> context -> requirements -> tech-spec -> implementation
 ```sh
 ./scripts/scaffold.sh ingest
 ```
-
-从更新版本的 scaffold checkout 升级已有项目，并避免覆盖本地内容：
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-update 只刷新 scaffold 管理的文件。它不会同步 `workspaces/scaffold/` 这个参考 workspace；如果发现旧版 scaffold 路径，会报告出来但不会自动删除本地文件。
 
 ## 文档
 
@@ -152,7 +143,7 @@ CLAIMS-TICKET-001
 4. 当前 workspace 的 `README.md`
 5. `wiki/index.md` 中相关 wiki 页面
 
-收尾时，更新当前 workspace 的 handoff，运行 ingest queue，运行 scaffold lint，并报告剩余缺口。
+收尾时，更新当前 workspace 的 handoff，运行 `./scripts/scaffold.sh ingest`，运行 `./scripts/scaffold.sh lint`，并报告剩余缺口。
 
 ## 项目状态
 

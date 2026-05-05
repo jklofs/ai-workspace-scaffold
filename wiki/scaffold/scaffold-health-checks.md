@@ -24,7 +24,6 @@ Run:
 ## What It Checks
 
 - Required root files exist.
-- Scaffold metadata files such as `scaffold.manifest` and `scaffold.deprecated` exist.
 - Required root directories exist.
 - Workspace root `README.md` files exist.
 - Standard workspace phase directories have `README.md` files.

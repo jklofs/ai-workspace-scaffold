@@ -34,10 +34,7 @@ Use `scripts/scaffold.sh` as the single scaffold command:
 ./scripts/scaffold.sh create <workspace-name>
 ./scripts/scaffold.sh lint
 ./scripts/scaffold.sh ingest
-./scripts/scaffold.sh update --source <latest-scaffold-path>
 ```
-
-The update command reads `scaffold.manifest` for scaffold-managed files and `scaffold.deprecated` for stale paths to report.
 
 ## Self-Bootstrapping Pattern
 

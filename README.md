@@ -16,7 +16,7 @@ AI Workspace Scaffold gives that work a stable shape:
 - `wiki/` for persistent reusable knowledge
 - `repos/` for implementation repositories, usually linked as git submodules
 - `templates/` for repeatable workspace documents
-- `scripts/` for creating workspaces, linting the scaffold, and maintaining wiki ingest queues
+- `scripts/` for the scaffold CLI
 
 ## Core Idea
 
@@ -74,15 +74,6 @@ Generate the wiki ingest queue:
 ```sh
 ./scripts/scaffold.sh ingest
 ```
-
-Update an existing project from a newer scaffold checkout without overwriting local work:
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-The update command refreshes scaffold-managed files only. It does not sync the reference workspace under `workspaces/scaffold/`, and it reports deprecated old scaffold paths without deleting local files.
 
 ## Documentation
 

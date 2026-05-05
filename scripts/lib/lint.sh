@@ -34,8 +34,6 @@ lint_scaffold() {
   require_file "README.md"
   require_file ".gitignore"
   require_file "LICENSE"
-  require_file "scaffold.deprecated"
-  require_file "scaffold.manifest"
   require_file "wiki/index.md"
   require_file "wiki/log.md"
   require_file "wiki/ingest-queue.md"
@@ -102,7 +100,7 @@ lint_scaffold() {
       rel="${junk#"$SCAFFOLD_ROOT/"}"
       warn "Ignored local noise file exists: $rel"
     fi
-  done < <(find "$SCAFFOLD_ROOT" \( -path "$SCAFFOLD_ROOT/.git" -o -path "$SCAFFOLD_ROOT/.scaffold-updates" \) -prune -o \( -name '.DS_Store' -o -name 'Thumbs.db' \) -print | sort)
+  done < <(find "$SCAFFOLD_ROOT" -path "$SCAFFOLD_ROOT/.git" -prune -o \( -name '.DS_Store' -o -name 'Thumbs.db' \) -print | sort)
 
   diff_check_output="$(git -C "$SCAFFOLD_ROOT" diff --check || true)"
   if [ "$diff_check_output" != "" ]; then

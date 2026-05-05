@@ -536,32 +536,9 @@ Run the scaffold lint script after structural changes:
 ./scripts/scaffold.sh lint
 ```
 
-The lint script checks required root files, `scaffold.manifest`, template coverage, workspace phase README files, wiki index coverage, ignored local noise warnings, and `git diff --check`.
+The lint command checks required root files, template coverage, workspace phase README files, wiki index coverage, ignored local noise warnings, and `git diff --check`.
 
 Wiki index coverage includes nested pages under topic directories.
-
-## Scaffold Updates
-
-Existing projects can update their scaffold structure from a newer scaffold checkout:
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-The update workflow must be non-destructive by default:
-
-- copy missing managed scaffold files
-- leave identical files unchanged
-- write candidate updates under `.scaffold-updates/<timestamp>/` when local files differ
-- do not overwrite user workspaces
-- do not copy the reference workspace `workspaces/scaffold/`
-- require an explicit force option before replacing local scaffold files
-
-The managed update surface is defined in `scaffold.manifest`, with one scaffold-owned file or path pattern per non-comment line.
-
-Deprecated old scaffold paths are defined in `scaffold.deprecated`. Update reports them when present downstream, but does not delete them automatically.
-
-`workspaces/scaffold/` is a reference and maintenance workspace. It is intentionally not copied by scaffold update.
 
 ## Review Gates
 

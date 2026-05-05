@@ -4,9 +4,8 @@
 
 ## [2026-05-05] scaffold | Consolidated scaffold CLI
 
-- Consolidated scaffold script operations under `scripts/scaffold.sh`.
-- Added `scaffold.manifest` for scaffold-managed update paths.
-- Added `scaffold.deprecated` for non-destructive stale path reporting during updates.
+- Consolidated scaffold operations under `scripts/scaffold.sh`.
+- Split CLI implementation into internal modules under `scripts/lib/`.
 - Added `templates/workspace-root.md` as the single source for generated workspace root README files.
 
 ## [2026-05-05] docs | Added LLM Wiki attribution

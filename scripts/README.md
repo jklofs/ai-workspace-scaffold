@@ -37,36 +37,6 @@ tech-spec/create-user-table.md
 implementation/create-user-table.md
 ```
 
-## Update Scaffold
-
-Update an existing project from a newer checkout of this scaffold:
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-The update command is intentionally non-destructive by default:
-
-- missing managed scaffold files are copied into the target project
-- existing files with identical content are left unchanged
-- existing files with different content are not overwritten
-- candidate updates are written under `.scaffold-updates/<timestamp>/`
-- a report is written to `.scaffold-updates/<timestamp>/report.md`
-
-Run a preview first:
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
-```
-
-Use `--force` only when the target project intentionally wants to replace its local scaffold files with the newer scaffold versions.
-
-The update command does not copy the reference workspace `workspaces/scaffold/`. User workspaces are project-owned data and must not be overwritten by scaffold updates.
-
-The managed file list is defined in [../scaffold.manifest](../scaffold.manifest). Each non-comment line is a scaffold-owned file or path pattern. Update that manifest when adding new scaffold-owned files or directories.
-
-Deprecated scaffold paths are defined in [../scaffold.deprecated](../scaffold.deprecated). Update reports these paths when they still exist downstream, but never deletes them automatically.
-
 ## Lint Scaffold
 
 Run a structural health check:
@@ -77,7 +47,7 @@ Run a structural health check:
 
 This checks required root files, workspace phase README files, template coverage, wiki index coverage, ignored local noise files, and `git diff --check`.
 
-## Update Ingest Queue
+## Generate Ingest Queue
 
 Generate the wiki ingest queue from visible workspace sections:
 

@@ -16,7 +16,7 @@ This repository is a coordination layer.
 | `wiki/` | Stable reusable knowledge |
 | `repos/` | Implementation repositories, usually linked as git submodules |
 | `templates/` | Reusable workspace document templates |
-| `scripts/` | Utilities for creating workspaces, linting, and wiki ingest queues |
+| `scripts/` | Scaffold CLI |
 
 ## Start Here
 
@@ -115,19 +115,6 @@ workspaces/user-management/
 ├── implementation/create-user-table.md
 └── review/create-user-table.md
 ```
-
-## Update An Existing Project
-
-When a project was created from an older scaffold, update it from a newer scaffold checkout:
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-The update command copies missing managed scaffold files, leaves identical files alone, and writes candidate updates under `.scaffold-updates/<timestamp>/` when a local file differs. It does not overwrite user workspaces by default.
-
-The reference workspace `workspaces/scaffold/` is not synced by update. It is local scaffold maintenance history, not user project structure.
 
 ## Handoff
 

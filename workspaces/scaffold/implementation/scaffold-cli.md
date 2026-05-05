@@ -12,10 +12,9 @@
 
 | Task | Status | Owner | Notes |
 |------|--------|-------|-------|
-| Consolidate CLI entry point | Complete | AI agent | `scripts/scaffold.sh` owns create, lint, ingest, and update |
+| Consolidate CLI entry point | Complete | AI agent | `scripts/scaffold.sh` owns create, lint, and ingest |
 | Split CLI internals | Complete | AI agent | Subcommand logic lives in `scripts/lib/*.sh` |
-| Add manifest | Complete | AI agent | `scaffold.manifest` lists managed update paths |
-| Add deprecated path reporting | Complete | AI agent | `scaffold.deprecated` lists stale old paths |
+| Remove update surface | Complete | AI agent | No automated downstream update command is exposed |
 | Extract root README template | Complete | AI agent | `templates/workspace-root.md` drives workspace README generation |
 | Update documentation | Complete | AI agent | Docs now prefer `./scripts/scaffold.sh ...` |
 
@@ -24,7 +23,6 @@
 | Area | Files | Reason |
 |------|-------|--------|
 | CLI | `scripts/scaffold.sh`, `scripts/lib/*.sh` | Single command with split implementation modules |
-| Metadata | `scaffold.manifest`, `scaffold.deprecated` | Update surface and stale path reporting |
 | Templates | `templates/workspace-root.md`, `templates/workspace/README.md` | Remove duplicated root README template |
 | Docs | README, guides, wiki, scaffold workspace docs | Align user-facing commands |
 
@@ -33,7 +31,5 @@
 - `bash -n scripts/scaffold.sh`
 - `./scripts/scaffold.sh lint`
 - `./scripts/scaffold.sh ingest`
-- `./scripts/scaffold.sh update --source .`
 - `./scripts/scaffold.sh create request` fails as expected for a generic name.
 - Temporary-directory `create user-management` generated the expected workspace files.
-- Temporary-directory `update` generated candidate updates and deprecated-path reporting without deleting local files.

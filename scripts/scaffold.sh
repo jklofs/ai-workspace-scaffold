@@ -8,21 +8,17 @@ SCAFFOLD_LIB="$SCAFFOLD_ROOT/scripts/lib"
 . "$SCAFFOLD_LIB/create.sh"
 . "$SCAFFOLD_LIB/lint.sh"
 . "$SCAFFOLD_LIB/ingest.sh"
-. "$SCAFFOLD_LIB/update.sh"
 
 usage() {
   printf 'Usage:\n'
   printf '  %s create <workspace-name>\n' "$0"
   printf '  %s lint\n' "$0"
   printf '  %s ingest\n' "$0"
-  printf '  %s update --source <latest-scaffold-path> [--dry-run] [--force]\n' "$0"
   printf '\n'
   printf 'Examples:\n'
   printf '  %s create user-management\n' "$0"
   printf '  %s lint\n' "$0"
   printf '  %s ingest\n' "$0"
-  printf '  %s update --source ../project-scaffold-latest\n' "$0"
-  printf '  %s update --source ../project-scaffold-latest --dry-run\n' "$0"
 }
 
 command="${1:-}"
@@ -38,10 +34,6 @@ case "$command" in
   ingest)
     shift
     update_ingest_queue "$@"
-    ;;
-  update)
-    shift
-    update_scaffold "$@"
     ;;
   -h|--help|"")
     usage

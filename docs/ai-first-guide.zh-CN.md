@@ -16,7 +16,7 @@
 | `wiki/` | 稳定可复用知识 |
 | `repos/` | 实现代码仓库，通常是 git submodule |
 | `templates/` | 可复用 workspace 文档模板 |
-| `scripts/` | 创建 workspace、lint、维护 wiki ingest queue |
+| `scripts/` | 脚手架 CLI |
 
 ## 从哪里开始
 
@@ -115,19 +115,6 @@ workspaces/user-management/
 ├── implementation/create-user-table.md
 └── review/create-user-table.md
 ```
-
-## 更新已有项目
-
-如果一个项目是基于旧版 scaffold 创建的，可以从新版 scaffold checkout 更新结构：
-
-```sh
-./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
-./scripts/scaffold.sh update --source ../project-scaffold-latest
-```
-
-这个命令会补齐缺失的 scaffold 管理文件；相同文件不处理；如果本地文件和新版不同，会把候选更新写到 `.scaffold-updates/<timestamp>/`。默认不会覆盖用户自己的 workspaces。
-
-`workspaces/scaffold/` 这个参考 workspace 不会通过 update 同步。它是本地 scaffold 维护历史，不是用户项目结构。
 
 ## Handoff
 

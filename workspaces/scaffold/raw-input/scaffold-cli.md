@@ -8,4 +8,4 @@
 
 ## Original Content
 
-The scaffold should use one meaningful CLI entry point instead of multiple separate scripts. The update manifest should be simple to understand, and the project should report stale old scaffold files without deleting user data automatically.
+The scaffold should use one meaningful CLI entry point instead of multiple separate scripts. It should not include an automated update command because downstream projects may have local content that scaffold automation must not overwrite.

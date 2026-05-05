@@ -2,12 +2,14 @@
 
 Utility scripts for operating this scaffold.
 
+`scaffold.sh` is the only user-facing script. Files under `scripts/lib/` are internal implementation modules sourced by `scaffold.sh`; call the top-level command instead of calling library files directly.
+
 ## Create Workspace
 
 Create a new AI-first workspace from the reusable template:
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 This creates:
@@ -61,22 +63,26 @@ Use `--force` only when the target project intentionally wants to replace its lo
 
 The update command does not copy the reference workspace `workspaces/scaffold/`. User workspaces are project-owned data and must not be overwritten by scaffold updates.
 
+The managed file list is defined in [../scaffold.manifest](../scaffold.manifest). Each non-comment line is a scaffold-owned file or path pattern. Update that manifest when adding new scaffold-owned files or directories.
+
+Deprecated scaffold paths are defined in [../scaffold.deprecated](../scaffold.deprecated). Update reports these paths when they still exist downstream, but never deletes them automatically.
+
 ## Lint Scaffold
 
 Run a structural health check:
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
-This checks required root files, workspace phase README files, template coverage, wiki index coverage, and `git diff --check`.
+This checks required root files, workspace phase README files, template coverage, wiki index coverage, ignored local noise files, and `git diff --check`.
 
 ## Update Ingest Queue
 
 Generate the wiki ingest queue from visible workspace sections:
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 Workspace documents can include:

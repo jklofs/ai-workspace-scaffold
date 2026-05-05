@@ -19,7 +19,7 @@
 
 | Task | Status | Owner | Notes |
 |------|--------|-------|-------|
-| Add lint script | Complete | AI agent | Added `scripts/lint-scaffold.sh` |
+| Add lint script | Complete | AI agent | Added `scripts/scaffold.sh lint` |
 | Document script | Complete | AI agent | Updated `scripts/README.md` |
 | Reference command | Complete | AI agent | Added references in root docs |
 
@@ -27,14 +27,14 @@
 
 | Repository | File | Reason |
 |------------|------|--------|
-| project-scaffold | `scripts/lint-scaffold.sh` | Scaffold health check |
+| project-scaffold | `scripts/scaffold.sh lint` | Scaffold health check |
 | project-scaffold | `scripts/README.md` | Usage documentation |
 | project-scaffold | `README.md` | Discoverability |
 | project-scaffold | `WIKI-SCHEMA.md` | Schema health-check rule |
 
 ## Verification Evidence
 
-- `./scripts/lint-scaffold.sh` passed.
+- `./scripts/scaffold.sh lint` passed.
 - `git diff --check` passed.
 
 ## Decisions During Implementation

@@ -50,7 +50,7 @@ Examples:
 Create a workspace:
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 Use meaningful kebab-case names. Keep the same topic slug across phase documents, for example `raw-input/create-user-table.md`, `requirements/create-user-table.md`, and `tech-spec/create-user-table.md`.
@@ -66,13 +66,13 @@ Update the generated workspace README, especially:
 Run the scaffold health check:
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
 Generate the wiki ingest queue:
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 Update an existing project from a newer scaffold checkout without overwriting local work:
@@ -81,6 +81,8 @@ Update an existing project from a newer scaffold checkout without overwriting lo
 ./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
 ./scripts/scaffold.sh update --source ../project-scaffold-latest
 ```
+
+The update command refreshes scaffold-managed files only. It does not sync the reference workspace under `workspaces/scaffold/`, and it reports deprecated old scaffold paths without deleting local files.
 
 ## Documentation
 
@@ -122,7 +124,7 @@ Workspace documents can propose stable knowledge for the wiki:
 Then run:
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 Promote durable conclusions into `wiki/`, update `wiki/index.md`, append `wiki/log.md`, and check off the source item.
@@ -150,7 +152,7 @@ Before acting, read:
 4. the active workspace `README.md`
 5. relevant wiki pages from `wiki/index.md`
 
-When finishing work, update the active workspace handoff, run the ingest queue, run scaffold lint, and report remaining gaps.
+When finishing work, update the active workspace handoff, run `./scripts/scaffold.sh ingest`, run `./scripts/scaffold.sh lint`, and report remaining gaps.
 
 ## Project Status
 

@@ -27,7 +27,7 @@ Rules:
 - Put interpretation in discovery, context, requirements, or wiki.
 - Promote only stable reusable knowledge to the wiki.
 - Add durable candidates to a visible `## Wiki Promotion Candidates` section in workspace documents.
-- Use `./scripts/update-ingest-queue.sh` to regenerate `wiki/ingest-queue.md`.
+- Use `./scripts/scaffold.sh ingest` to regenerate `wiki/ingest-queue.md`.
 - Update `wiki/index.md` when navigation changes.
 - Append `wiki/log.md` when wiki knowledge changes.
 - Use topic directories such as `workflow/`, `conventions/`, `design/`, and `scaffold/` as the wiki grows.

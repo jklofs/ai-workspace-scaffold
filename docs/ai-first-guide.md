@@ -35,7 +35,7 @@ Do not read every file by default. Start from the active workspace and follow li
 Create a new workspace:
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 This creates:
@@ -127,6 +127,8 @@ When a project was created from an older scaffold, update it from a newer scaffo
 
 The update command copies missing managed scaffold files, leaves identical files alone, and writes candidate updates under `.scaffold-updates/<timestamp>/` when a local file differs. It does not overwrite user workspaces by default.
 
+The reference workspace `workspaces/scaffold/` is not synced by update. It is local scaffold maintenance history, not user project structure.
+
 ## Handoff
 
 Every workspace README should include a short handoff section.
@@ -197,7 +199,7 @@ Workspace documents can include:
 Then run:
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 To complete an ingest:
@@ -207,15 +209,15 @@ To complete an ingest:
 3. Update `wiki/index.md`.
 4. Append `wiki/log.md`.
 5. Check off the source item under `Wiki Promotion Candidates`.
-6. Run `./scripts/update-ingest-queue.sh`.
-7. Run `./scripts/lint-scaffold.sh`.
+6. Run `./scripts/scaffold.sh ingest`.
+7. Run `./scripts/scaffold.sh lint`.
 
 ## Scripts
 
 ### Create Workspace
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 Creates a workspace from `templates/workspace/`.
@@ -223,7 +225,7 @@ Creates a workspace from `templates/workspace/`.
 ### Lint Scaffold
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
 Checks scaffold structure, workspace phase README files, wiki index coverage, ingest queue presence, and `git diff --check`.
@@ -233,7 +235,7 @@ This is a structural guard. It does not prove that document content is complete 
 ### Update Ingest Queue
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 Scans visible `Wiki Promotion Candidates` sections and regenerates `wiki/ingest-queue.md`.
@@ -243,7 +245,7 @@ Scans visible `Wiki Promotion Candidates` sections and regenerates `wiki/ingest-
 ### Starting a new module
 
 ```text
-Create a workspace for the admin module.
+Create a workspace for the user management module.
 Use the workflow router to choose the smallest useful process.
 Update the workspace README handoff before doing implementation work.
 ```
@@ -269,7 +271,7 @@ Do not modify files yet.
 ```text
 Update the workspace handoff.
 Review Wiki Promotion Candidates.
-Run update-ingest-queue and lint-scaffold.
+Run ingest and lint.
 Report any remaining gaps.
 ```
 
@@ -278,8 +280,8 @@ Report any remaining gaps.
 Run:
 
 ```sh
-./scripts/update-ingest-queue.sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh ingest
+./scripts/scaffold.sh lint
 git diff --check
 ```
 

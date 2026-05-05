@@ -50,6 +50,7 @@ implementation
 - Reusable scaffold conclusions belong in `wiki/`.
 - User project workspaces should stay separate from scaffold maintenance.
 - Scaffold updates must not overwrite user workspace content by default.
+- `scripts/scaffold.sh` is the single scaffold CLI entry point.
 
 ### Unknown
 
@@ -94,6 +95,7 @@ Use this workspace for future scaffold changes and keep this handoff current.
 | Date | Decision | Reason |
 |------|----------|--------|
 | 2026-05-05 | Consolidate scaffold work into one workspace | A single scaffold workspace is easier to understand and maintain |
+| 2026-05-05 | Use one scaffold CLI entry point | A single command reduces script discovery and update complexity |
 
 ## ID Prefix
 
@@ -102,6 +104,7 @@ Use `SCAFFOLD-REQ-001` and `SCAFFOLD-TICKET-001` IDs for future scaffold require
 ## Wiki Promotion Candidates
 
 - [x] wiki/scaffold/scaffold.md — Scaffold work should use one persistent workspace.
+- [x] wiki/scaffold/scaffold.md — Scaffold operations should use one primary CLI entry point.
 
 ## Open Questions
 

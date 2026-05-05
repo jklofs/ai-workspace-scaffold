@@ -26,6 +26,19 @@ Use `scaffold` when changing:
 - wiki organization rules
 - workspace lifecycle conventions
 
+## CLI
+
+Use `scripts/scaffold.sh` as the single scaffold command:
+
+```sh
+./scripts/scaffold.sh create <workspace-name>
+./scripts/scaffold.sh lint
+./scripts/scaffold.sh ingest
+./scripts/scaffold.sh update --source <latest-scaffold-path>
+```
+
+The update command reads `scaffold.manifest` for scaffold-managed files and `scaffold.deprecated` for stale paths to report.
+
 ## Self-Bootstrapping Pattern
 
 The scaffold should use its own workflow to maintain itself.
@@ -53,5 +66,6 @@ If a maintenance change affects how agents should behave, update `WIKI-SCHEMA.md
 
 - The wiki should use topic directories instead of a single flat namespace.
 - `scaffold` is the persistent workspace for evolving the scaffold.
+- `scripts/scaffold.sh` is the primary scaffold CLI entry point.
 - Scaffold changes should be self-bootstrapped through workspace documents when useful.
 - Durable conclusions from scaffold work should be ingested into the wiki.

@@ -17,7 +17,7 @@
 
 ## Summary
 
-Add a `scripts/lint-scaffold.sh` shell script and document it in `scripts/README.md`.
+Add a `scripts/scaffold.sh lint` shell script and document it in `scripts/README.md`.
 
 ## Proposed Approach
 
@@ -27,7 +27,7 @@ Use a dependency-free shell script that resolves the repository root, checks req
 
 | Task | Files / Areas | Acceptance |
 |------|---------------|------------|
-| Add lint script | `scripts/lint-scaffold.sh` | Script exits 0 on current scaffold |
+| Add lint script | `scripts/scaffold.sh lint` | Script exits 0 on current scaffold |
 | Document command | `scripts/README.md` | README shows how to run it |
 | Reference command | `README.md`, `WIKI-SCHEMA.md` | Users can discover the command |
 
@@ -35,7 +35,7 @@ Use a dependency-free shell script that resolves the repository root, checks req
 
 ### Automated Tests
 
-- [x] Run `./scripts/lint-scaffold.sh`
+- [x] Run `./scripts/scaffold.sh lint`
 - [x] Run `git diff --check`
 
 ### Manual Tests
@@ -44,7 +44,7 @@ Use a dependency-free shell script that resolves the repository root, checks req
 
 ## Rollback Plan
 
-Remove `scripts/lint-scaffold.sh` and its documentation references.
+Remove `scripts/scaffold.sh lint` and its documentation references.
 
 ## Risks
 

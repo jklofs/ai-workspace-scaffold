@@ -2,6 +2,13 @@
 
 > Chronological record of wiki operations.
 
+## [2026-05-05] scaffold | Consolidated scaffold CLI
+
+- Consolidated scaffold script operations under `scripts/scaffold.sh`.
+- Added `scaffold.manifest` for scaffold-managed update paths.
+- Added `scaffold.deprecated` for non-destructive stale path reporting during updates.
+- Added `templates/workspace-root.md` as the single source for generated workspace root README files.
+
 ## [2026-05-05] docs | Added LLM Wiki attribution
 
 - Added original gist attribution to `LLM-WIKI.md`
@@ -36,7 +43,7 @@
 ## [2026-05-05] schema | Added self-driven ingest queue
 
 - Added `wiki/ingest-queue.md` as an auto-generated queue for pending wiki promotion candidates
-- Added `scripts/update-ingest-queue.sh` to scan visible workspace `Wiki Promotion Candidates` sections
+- Added ingest queue generation to scan visible workspace `Wiki Promotion Candidates` sections
 - Updated scaffold lint to require the ingest queue and warn on pending ingest markers
 - Documented visible wiki promotion candidate workflow
 

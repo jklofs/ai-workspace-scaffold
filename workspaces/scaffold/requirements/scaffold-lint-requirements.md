@@ -48,7 +48,7 @@ Provide a simple command that checks whether the scaffold's required structure i
 
 | Requirement ID | Criterion | Status |
 |----------------|-----------|--------|
-| SCAFFOLD-REQ-001 | Running `./scripts/lint-scaffold.sh` succeeds on the current scaffold. | Pass |
+| SCAFFOLD-REQ-001 | Running `./scripts/scaffold.sh lint` succeeds on the current scaffold. | Pass |
 | SCAFFOLD-REQ-001 | Missing required files cause a failure. | Pass |
 | SCAFFOLD-REQ-004 | Non-standard workspace directories produce warnings rather than hard failures. | Pass |
 | SCAFFOLD-REQ-006 | The script is documented in `scripts/README.md`. | Pass |

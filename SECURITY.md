@@ -21,6 +21,6 @@ Do not publish secrets or exploit details in a public issue.
 Before publishing or merging, run a local sensitive information scan and:
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 git diff --check
 ```

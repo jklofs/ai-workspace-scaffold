@@ -35,7 +35,7 @@
 创建新 workspace：
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 它会生成：
@@ -127,6 +127,8 @@ workspaces/user-management/
 
 这个命令会补齐缺失的 scaffold 管理文件；相同文件不处理；如果本地文件和新版不同，会把候选更新写到 `.scaffold-updates/<timestamp>/`。默认不会覆盖用户自己的 workspaces。
 
+`workspaces/scaffold/` 这个参考 workspace 不会通过 update 同步。它是本地 scaffold 维护历史，不是用户项目结构。
+
 ## Handoff
 
 每个 workspace README 都应该有简短 handoff。
@@ -197,7 +199,7 @@ workspace 文档可以包含：
 然后运行：
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 完成一次 ingest：
@@ -207,15 +209,15 @@ workspace 文档可以包含：
 3. 更新 `wiki/index.md`。
 4. 追加 `wiki/log.md`。
 5. 勾选来源文档里的 `Wiki Promotion Candidates`。
-6. 运行 `./scripts/update-ingest-queue.sh`。
-7. 运行 `./scripts/lint-scaffold.sh`。
+6. 运行 `./scripts/scaffold.sh ingest`。
+7. 运行 `./scripts/scaffold.sh lint`。
 
 ## Scripts
 
 ### Create Workspace
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 从 `templates/workspace/` 创建 workspace。
@@ -223,7 +225,7 @@ workspace 文档可以包含：
 ### Lint Scaffold
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
 检查脚手架结构、workspace 阶段 README、wiki index 覆盖、ingest queue 是否存在，以及 `git diff --check`。
@@ -233,7 +235,7 @@ workspace 文档可以包含：
 ### Update Ingest Queue
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 扫描可见的 `Wiki Promotion Candidates` 区块，重新生成 `wiki/ingest-queue.md`。
@@ -243,17 +245,17 @@ workspace 文档可以包含：
 ### 启动新模块
 
 ```text
-Create a workspace for the admin module.
-Use the workflow router to choose the smallest useful process.
-Update the workspace README handoff before doing implementation work.
+为 user management 模块创建一个 workspace。
+使用 workflow router 选择最小但足够的流程。
+在开始实现前更新 workspace README 的 handoff。
 ```
 
 ### 处理 ticket
 
 ```text
-Put the original ticket in raw-input.
-Decide whether discovery is needed.
-If behavior is clear, proceed to implementation and record the shortcut.
+把原始 ticket 放进 raw-input。
+判断是否需要 discovery。
+如果行为已经清楚，直接进入 implementation，并记录 phase shortcut。
 ```
 
 ### 接手已有工作
@@ -269,7 +271,7 @@ Do not modify files yet.
 ```text
 Update the workspace handoff.
 Review Wiki Promotion Candidates.
-Run update-ingest-queue and lint-scaffold.
+Run ingest and lint.
 Report any remaining gaps.
 ```
 
@@ -278,8 +280,8 @@ Report any remaining gaps.
 运行：
 
 ```sh
-./scripts/update-ingest-queue.sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh ingest
+./scripts/scaffold.sh lint
 git diff --check
 ```
 

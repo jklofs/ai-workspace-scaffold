@@ -18,16 +18,18 @@ They help detect drift in required files, workspace phase documentation, wiki in
 Run:
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
 ## What It Checks
 
 - Required root files exist.
+- Scaffold metadata files such as `scaffold.manifest` and `scaffold.deprecated` exist.
 - Required root directories exist.
 - Workspace root `README.md` files exist.
 - Standard workspace phase directories have `README.md` files.
 - Non-index wiki pages are listed in `wiki/index.md`.
+- Ignored local noise files such as `.DS_Store` are reported as warnings.
 - `git diff --check` reports no whitespace or conflict-marker issues.
 - `wiki/ingest-queue.md` exists and exposes pending wiki promotion candidates.
 

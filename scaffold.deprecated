@@ -1,0 +1,9 @@
+# Deprecated scaffold paths.
+#
+# These paths are no longer part of the current scaffold. `scripts/scaffold.sh
+# update` reports them when they still exist in a downstream project, but does
+# not delete them automatically.
+
+scripts/create-workspace.sh
+scripts/lint-scaffold.sh
+scripts/update-ingest-queue.sh

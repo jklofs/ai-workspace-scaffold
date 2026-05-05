@@ -21,7 +21,7 @@
 
 | Criterion | Status | Evidence |
 |-----------|--------|----------|
-| Script succeeds on current scaffold | Pass | `./scripts/lint-scaffold.sh` passed |
+| Script succeeds on current scaffold | Pass | `./scripts/scaffold.sh lint` passed |
 | Missing required files cause failure | Pass | Covered by explicit `require_file` checks |
 | Non-standard workspace directories warn | Pass | Script uses `warn` for unknown phase directories |
 | Script is documented | Pass | `scripts/README.md` includes usage |
@@ -30,7 +30,7 @@
 
 | Test | Result | Notes |
 |------|--------|-------|
-| `./scripts/lint-scaffold.sh` | Pass | Structural lint passed |
+| `./scripts/scaffold.sh lint` | Pass | Structural lint passed |
 | `git diff --check` | Pass | No whitespace issues |
 
 ## Issues Found

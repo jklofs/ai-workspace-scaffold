@@ -350,7 +350,7 @@ Workspace documents should include a visible section when they may produce reusa
 Then run:
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 This generates `wiki/ingest-queue.md`, which is the queue of pending durable knowledge candidates.
@@ -533,10 +533,10 @@ tech-spec/create-user-table-migration.md
 Run the scaffold lint script after structural changes:
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
-The lint script checks required root files, template coverage, workspace phase README files, wiki index coverage, and `git diff --check`.
+The lint script checks required root files, `scaffold.manifest`, template coverage, workspace phase README files, wiki index coverage, ignored local noise warnings, and `git diff --check`.
 
 Wiki index coverage includes nested pages under topic directories.
 
@@ -556,6 +556,12 @@ The update workflow must be non-destructive by default:
 - do not overwrite user workspaces
 - do not copy the reference workspace `workspaces/scaffold/`
 - require an explicit force option before replacing local scaffold files
+
+The managed update surface is defined in `scaffold.manifest`, with one scaffold-owned file or path pattern per non-comment line.
+
+Deprecated old scaffold paths are defined in `scaffold.deprecated`. Update reports them when present downstream, but does not delete them automatically.
+
+`workspaces/scaffold/` is a reference and maintenance workspace. It is intentionally not copied by scaffold update.
 
 ## Review Gates
 

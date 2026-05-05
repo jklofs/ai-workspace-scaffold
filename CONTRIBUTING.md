@@ -31,8 +31,8 @@ Read:
 5. Run:
 
 ```sh
-./scripts/update-ingest-queue.sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh ingest
+./scripts/scaffold.sh lint
 git diff --check
 ```
 

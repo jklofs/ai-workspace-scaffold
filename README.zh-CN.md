@@ -50,7 +50,7 @@ raw-input -> discovery -> context -> requirements -> tech-spec -> implementation
 创建 workspace：
 
 ```sh
-./scripts/create-workspace.sh user-management
+./scripts/scaffold.sh create user-management
 ```
 
 名称要用有意义的 kebab-case。相同事项在不同阶段复用同一个 topic slug，例如 `raw-input/create-user-table.md`、`requirements/create-user-table.md`、`tech-spec/create-user-table.md`。
@@ -66,13 +66,13 @@ raw-input -> discovery -> context -> requirements -> tech-spec -> implementation
 检查脚手架结构：
 
 ```sh
-./scripts/lint-scaffold.sh
+./scripts/scaffold.sh lint
 ```
 
 生成 wiki ingest queue：
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 从更新版本的 scaffold checkout 升级已有项目，并避免覆盖本地内容：
@@ -81,6 +81,8 @@ raw-input -> discovery -> context -> requirements -> tech-spec -> implementation
 ./scripts/scaffold.sh update --source ../project-scaffold-latest --dry-run
 ./scripts/scaffold.sh update --source ../project-scaffold-latest
 ```
+
+update 只刷新 scaffold 管理的文件。它不会同步 `workspaces/scaffold/` 这个参考 workspace；如果发现旧版 scaffold 路径，会报告出来但不会自动删除本地文件。
 
 ## 文档
 
@@ -122,7 +124,7 @@ workspace 文档可以提出需要沉淀到 wiki 的稳定知识：
 然后运行：
 
 ```sh
-./scripts/update-ingest-queue.sh
+./scripts/scaffold.sh ingest
 ```
 
 真正沉淀时，把结论写入 `wiki/`，更新 `wiki/index.md`，追加 `wiki/log.md`，并把来源 workspace 里的候选项勾选。

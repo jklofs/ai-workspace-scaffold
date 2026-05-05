@@ -1,19 +1,22 @@
 # Workspaces
 
-Active project workspaces. Each follows a standard phase structure.
+Active project workspaces. Each follows the AI-first PRD lifecycle defined in [../WIKI-SCHEMA.md](../WIKI-SCHEMA.md).
 
 ## Phase Structure
 
 ```text
-raw-input/       -> Original requirements, tickets, materials
-requirements/    -> Refined acceptance criteria and scope
-context/         -> Product and technical context
-discovery/       -> Research and analysis
-design/          -> Architecture and UI/UX design
-tech-spec/       -> Technical specifications
-implementation/  -> Implementation plan and progress tracking
-review/          -> Verification checklists and sign-off
+raw-input/       -> Original source materials, unchanged
+discovery/       -> Research, ambiguity, open questions, risks
+context/         -> Product and technical background for future agents
+requirements/    -> Confirmed PRD-style requirements and acceptance criteria
+tech-spec/       -> Reviewed technical design and task breakdown
+implementation/  -> Execution tracking, deviations, verification evidence
+review/          -> Acceptance verification and final sign-off
 ```
+
+Use [../templates/workspace/](../templates/workspace/) when creating a new workspace.
+
+The full phase structure is the default for substantial or ambiguous work. Each phase can also be used independently. Clear small changes, bug fixes, operational tasks, user-directed implementation tasks, standalone research, or review-only work may start directly in the relevant phase. Record the phase scope or shortcut reason in the active document.
 
 ## Knowledge Sink
 

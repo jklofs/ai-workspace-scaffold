@@ -5,24 +5,56 @@ Reusable coordination repository scaffold for multi-project work with:
 - `workspaces/` for planning and delivery documents
 - `wiki/` for persistent reusable knowledge
 - `repos/` for implementation repositories, typically linked as git submodules
-- `AGENT-RULES.md` plus agent entry files for Codex and Claude Code
+- `templates/` for repeatable AI-first workspace documents
+- `WIKI-SCHEMA.md` plus agent entry files for Codex and Claude Code
 
 ## What This Scaffold Includes
 
 - Shared agent operating rules
 - LLM Wiki pattern baseline
-- Workspace lifecycle structure
+- AI-first PRD lifecycle schema
+- Workspace lifecycle structure and templates
 - Foundation guidance for starting new projects
 - Empty wiki index and log
 - Repository index for implementation repos
 - Reusable seed raw-input sources and wiki pages for conventions, git workflow, and design guidance
 
+## AI-First Lifecycle
+
+Each substantial module, feature, or project gets a workspace under `workspaces/<workspace-name>/`.
+
+The standard flow is:
+
+```text
+raw-input -> discovery -> context -> requirements -> tech-spec -> implementation -> review
+```
+
+The full flow is used for substantial or ambiguous work. The phases are also usable independently. A workspace may intentionally contain only discovery, only context, only implementation, or another subset when that fits the task.
+
+The intent is to preserve useful traceability without forcing unnecessary ceremony.
+
+Use [WIKI-SCHEMA.md](WIKI-SCHEMA.md) for the full operating model and [templates/workspace/](templates/workspace/) for reusable document templates.
+
+Create a new workspace with:
+
+```sh
+./scripts/create-workspace.sh admin
+```
+
+Check scaffold consistency with:
+
+```sh
+./scripts/lint-scaffold.sh
+```
+
 ## Intended Usage
 
 1. Start from this repository
 2. Add a project workspace under `workspaces/`
-3. Add implementation repositories under `repos/` as needed
-4. Sink reusable conclusions into `wiki/`
+3. Capture original source material in `raw-input/`
+4. Use the lifecycle phases needed for the task
+5. Add implementation repositories under `repos/` as needed
+6. Sink stable reusable conclusions into `wiki/`
 
 ## Notes
 

@@ -1,19 +1,25 @@
 # Project Agent Rules
 
-This repository uses [LLM-WIKI.md](LLM-WIKI.md) as the upstream pattern reference. Keep `LLM-WIKI.md` close to upstream; put local operating rules here.
+This repository uses [LLM-WIKI.md](LLM-WIKI.md) as the upstream pattern reference. Keep `LLM-WIKI.md` close to upstream.
+
+[WIKI-SCHEMA.md](WIKI-SCHEMA.md) is the local schema that defines how the LLM Wiki pattern is applied to AI-first PRD-driven development in this repository.
+
+Put hard operating rules here. Put detailed wiki/workspace lifecycle rules in `WIKI-SCHEMA.md`.
 
 ## Local Structure
 
 ```text
 project-root/
 ├── repos/           # Code repositories, typically linked as git submodules
+├── templates/       # Reusable workspace and document templates
 ├── workspaces/      # Project workspaces with lifecycle documents
 └── wiki/            # Persistent knowledge
 ```
 
 - `workspaces/<project>/` is the planning workspace for that project
-- The upstream `raw/` idea is expanded here into phase-specific workspace directories
+- The upstream `raw/` idea is expanded into the phase lifecycle defined by `WIKI-SCHEMA.md`
 - `wiki/` stores reusable cross-project knowledge
+- `templates/` stores reusable scaffolding for new workspaces and phase documents
 - All persistent files are in English and use kebab-case file names
 
 ## Reuse Intent
@@ -34,9 +40,10 @@ Do not rely on `wiki/` as the primary source for agent behavior. Hard operating 
 Use this order when working:
 
 1. This file for agent operating rules
-2. Relevant knowledge pages in `wiki/`
-3. Relevant project workspace in `workspaces/`
-4. Code in `repos/`
+2. `WIKI-SCHEMA.md` for wiki/workspace lifecycle rules
+3. Relevant knowledge pages in `wiki/`
+4. Relevant project workspace in `workspaces/`
+5. Code in `repos/`
 
 Do not treat "wiki first" as "read every wiki page first".
 Use `wiki/` for persistent knowledge, then consult the relevant workspace for current-project context, plans, and source material.

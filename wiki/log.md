@@ -2,6 +2,11 @@
 
 > Chronological record of wiki operations.
 
+## [2026-05-07] scaffold | Expanded Markdown link linting
+
+- Added scaffold lint coverage for local Markdown links across repository documents.
+- Updated scaffold health-check documentation to include local Markdown link target validation.
+
 ## [2026-05-05] scaffold | Improved workspace templates and lint checks
 
 - Split copyable phase document templates into `templates/documents/` while keeping phase README files as directory explanations.

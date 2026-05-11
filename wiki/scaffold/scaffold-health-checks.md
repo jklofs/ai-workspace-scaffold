@@ -34,6 +34,7 @@ Run:
 - Workspace phase documents warn when related phases appear to use different topic slugs.
 - Non-index wiki pages are listed in `wiki/index.md`.
 - `wiki/index.md` links point to existing wiki files.
+- Local Markdown links point to existing files or directories.
 - Ignored local noise files such as `.DS_Store` are reported as warnings.
 - `git diff --check` reports no whitespace or conflict-marker issues.
 - `wiki/ingest-queue.md` exists and exposes pending wiki promotion candidates.

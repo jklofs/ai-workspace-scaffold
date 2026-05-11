@@ -143,6 +143,36 @@ EOF
     done < <(grep -oE '\[[^]]+\]\([^)]+\)' "$SCAFFOLD_ROOT/wiki/index.md" | sed -E 's/^.*\(([^)]*)\).*$/\1/' | sort -u)
   }
 
+  require_markdown_link_targets_exist() {
+    local page=""
+    local page_dir=""
+    local rel=""
+    local link=""
+    local target=""
+
+    while IFS= read -r page; do
+      [ -f "$page" ] || continue
+      page_dir="$(dirname "$page")"
+      rel="${page#"$SCAFFOLD_ROOT/"}"
+
+      while IFS= read -r link; do
+        target="${link%%#*}"
+        target="${target#<}"
+        target="${target%>}"
+
+        case "$target" in
+          ""|\#*|http://*|https://*|mailto:*|tel:*|/*)
+            continue
+            ;;
+        esac
+
+        if [ ! -e "$page_dir/$target" ]; then
+          fail "Markdown link points to missing target: $rel -> $target"
+        fi
+      done < <(grep -oE '!?\[[^]]+\]\([^)]+\)' "$page" | sed -E 's/^!?\[[^]]+\]\(([^)[:space:]]+).*$/\1/' | sort -u)
+    done < <(find "$SCAFFOLD_ROOT" -path "$SCAFFOLD_ROOT/.git" -prune -o -type f -name '*.md' -print | sort)
+  }
+
   require_file "LLM-WIKI.md"
   require_file "WIKI-SCHEMA.md"
   require_file "AGENT-RULES.md"
@@ -204,6 +234,7 @@ EOF
   done
 
   require_wiki_index_targets_exist
+  require_markdown_link_targets_exist
 
   while IFS= read -r page; do
     [ -f "$page" ] || continue

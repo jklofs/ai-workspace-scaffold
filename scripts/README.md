@@ -75,7 +75,7 @@ Run a structural health check:
 ./scripts/scaffold.sh lint
 ```
 
-This checks required root files, executable scaffold scripts, workspace phase README files, document template coverage, workspace root README placeholders, wiki index coverage in both directions, phase document naming warnings, ignored local noise files, and `git diff --check`.
+This checks required root files, executable scaffold scripts, workspace phase README files, document template coverage, workspace root README placeholders, wiki index coverage in both directions, local Markdown link targets, phase document naming warnings, ignored local noise files, and `git diff --check`.
 
 ## Generate Ingest Queue
 

@@ -124,6 +124,33 @@ Workspace documents can include:
 
 Unchecked items are collected into `wiki/ingest-queue.md`.
 
+## Agent Finish Helper
+
+`scripts/agent-finish.sh` is an optional maintainer convenience helper for reviewing a workspace before handoff. It does not replace `./scripts/scaffold.sh` as the primary scaffold command.
+
+Usage:
+
+```sh
+scripts/agent-finish.sh user-management
+```
+
+Workspace names must be kebab-case: lowercase letters, digits, and single hyphens only, with an alphanumeric first and last character.
+
+The helper checks that `workspaces/<workspace-name>/` exists, then runs the existing scaffold commands when `scripts/scaffold.sh` is executable:
+
+```sh
+./scripts/scaffold.sh status
+./scripts/scaffold.sh ingest
+./scripts/scaffold.sh lint
+```
+
+Safety notes:
+
+- It does not modify `AGENTS.md`.
+- It does not promote wiki content automatically.
+- It does not commit or auto-commit changes.
+- It only prints candidate locations for manual review, including the workspace `review/` directory, `wiki/ingest-queue.md` when present, and `review/rule-candidates.md` when present.
+
 ## Agent Launch Helpers
 
 Launch Codex or Claude from the scaffold root with elevated local permissions:

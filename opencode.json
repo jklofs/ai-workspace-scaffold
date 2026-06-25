@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "AGENTS.md",
+    "LLM-WIKI.md",
+    "WIKI-SCHEMA.md",
+    "AGENT-RULES.md",
+    "scripts/README.md",
+    "wiki/index.md"
+  ]
+}

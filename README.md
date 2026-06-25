@@ -130,6 +130,7 @@ Generate the wiki ingest queue:
 ## Documentation
 
 - [Onboarding guide](docs/ai-first-guide.md) — practical guide for people and AI agents working in this scaffold
+- [AI workspace workflow commands](docs/ai-workspace-workflow.md) — OpenCode slash-command workflow for old-project stable iteration with OpenSpec
 - [LLM-WIKI.md](LLM-WIKI.md) — upstream pattern idea, attributed to the original gist by Andrej Karpathy
 - [WIKI-SCHEMA.md](WIKI-SCHEMA.md) — local operating schema
 - [AGENT-RULES.md](AGENT-RULES.md) — hard rules for AI agents

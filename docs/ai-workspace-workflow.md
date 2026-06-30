@@ -86,3 +86,24 @@ review proposal/design/tasks
 ## Candidate-first guardrails
 
 Keep uncertain material in workspace candidates until a human or reviewer confirms it. `/aws-promote` should move only confirmed long-term facts into `wiki/`, and rule candidates should stay out of `AGENTS.md` until they meet the repository rule promotion policy.
+
+## Closed-loop map
+
+Use this map to verify that each workflow entry point has an output, a next step, and a check before moving on.
+
+| Entry point | Primary output | Next step | Closure check |
+|-------------|----------------|-----------|---------------|
+| `./scripts/opencode.sh` | OpenCode starts from the scaffold root with the configured session | Run `/aws-init` or a task-specific `/aws-*` command | `./scripts/opencode.sh --version` and `/` shows the `/aws-*` commands |
+| `/aws-init` | Core OpenCode/Codex/Claude instructions are checked or completed | Onboard a repo or create a workspace | `python3 -m json.tool opencode.json >/dev/null` |
+| `/aws-onboard <repo-name>` | Onboarding context under `workspaces/<repo-name>-onboarding/context/` | Initialize or align OpenSpec in `repos/<repo-name>` | Context files exist and unknowns are marked `TODO` |
+| `/aws-spec-init <repo-name>` | OpenSpec candidate specs for confirmed current behavior | Start a concrete change with `/aws-explore` or `/aws-propose` | Candidate specs avoid future requirements and mark unknowns `TODO` |
+| `/aws-explore <topic>` | Discovery notes, options, risks, and suggested change name | Create the OpenSpec change contract with `/aws-propose` | Discovery output identifies scope, risks, and open questions |
+| `/aws-propose <repo-name> <change-name>` | OpenSpec proposal, design, tasks, and delta specs | Human review, then `/aws-apply` | `openspec validate <change-name> --strict` when available |
+| `/aws-apply <repo-name> <change-name>` | Implementation following `tasks.md` only | `/aws-review` | `tasks.md` checked off and related tests or manual checks recorded |
+| `/aws-review <repo-name> <change-name>` | Blocking issues, risks, missing tests, and merge recommendation | Fix blockers or archive accepted work | Review decision is explicit: approve, changes requested, or reject |
+| `/aws-archive <repo-name> <change-name>` | Archived OpenSpec change and promotion candidates | `/aws-finish` | Change tasks are complete and archive result is recorded |
+| `/aws-finish <workspace-name>` | Updated handoff, worklog/review notes, ingest queue, lint report | Promote durable knowledge or stop | `./scripts/scaffold.sh ingest`, `./scripts/scaffold.sh lint`, and `git diff --check` have recorded results |
+| `/aws-promote <workspace-name>` | Confirmed stable knowledge in `wiki/` | Re-run ingest and lint | `wiki/index.md` and `wiki/log.md` are updated; source candidate is checked off |
+| `/aws-rule-candidates <workspace-name>` | Pending rule candidates in workspace review docs | Human approval before `AGENTS.md` changes | Every candidate has reason, trigger, target file, evidence, and pending status |
+
+For scaffold-only operations, use `./scripts/scaffold.sh create`, `create-doc`, `status`, `stale`, `ingest`, and `lint`; close each operation by checking `./scripts/scaffold.sh status`, `./scripts/scaffold.sh lint`, and any generated handoff or ingest queue changes.

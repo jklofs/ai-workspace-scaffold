@@ -11,6 +11,7 @@ context/         -> Product and technical background for future agents
 requirements/    -> Confirmed PRD-style requirements and acceptance criteria
 tech-spec/       -> Reviewed technical design and task breakdown
 implementation/  -> Execution tracking, deviations, verification evidence
+worklog/         -> Chronological session log for long-running or multi-session work
 review/          -> Acceptance verification and final sign-off
 ```
 
@@ -33,3 +34,4 @@ Reusable knowledge produced during projects sinks to `wiki/`.
 | Workspace | Description | Status |
 |-----------|-------------|--------|
 | [scaffold](./scaffold/) | Shared conventions, initialization guidance, and maintenance workspace for the project scaffold | Active |
+| [python-hello-sample-onboarding](./python-hello-sample-onboarding/) | Beginner-friendly analysis of a tiny Python sample repository tracked under `repos/hello` | Complete |

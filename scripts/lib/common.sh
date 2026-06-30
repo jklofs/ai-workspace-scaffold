@@ -69,6 +69,10 @@ is_generic_name() {
   esac
 }
 
+is_strict_kebab_slug() {
+  [[ "$1" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]
+}
+
 copy_file() {
   local src="$1"
   local dest="$2"

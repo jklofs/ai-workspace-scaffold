@@ -132,6 +132,7 @@ If a workflow would be too heavy, record a `Phase Shortcut` or `Phase Scope` ins
 | `requirements/` | PRD-style requirements, tickets, acceptance criteria |
 | `tech-spec/` | Technical approach, task breakdown, tests, rollback |
 | `implementation/` | Execution notes, changed files, verification evidence |
+| `worklog/` | Chronological session log for long-running or multi-session work |
 | `review/` | Acceptance results, issues, final decision |
 
 Each phase can stand alone when that is the right fit.
@@ -152,6 +153,7 @@ workspaces/user-management/
 ├── requirements/create-user-table.md
 ├── tech-spec/create-user-table.md
 ├── implementation/create-user-table.md
+├── worklog/create-user-table.md
 └── review/create-user-table.md
 ```
 

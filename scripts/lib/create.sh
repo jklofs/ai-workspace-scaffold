@@ -21,12 +21,10 @@ create_workspace() {
     exit 1
   fi
 
-  case "$name" in
-    *[!a-z0-9-]* | -* | *-)
-      printf 'Workspace name must be kebab-case: lowercase letters, numbers, and hyphens only.\n' >&2
-      exit 1
-      ;;
-  esac
+  if ! is_strict_kebab_slug "$name"; then
+    printf 'Workspace name must be kebab-case: lowercase letters, numbers, and single hyphens only.\n' >&2
+    exit 1
+  fi
 
   if is_generic_name "$name"; then
     printf 'Workspace name is too generic. Use a meaningful project, module, feature, or outcome name.\n' >&2
@@ -34,12 +32,10 @@ create_workspace() {
   fi
 
   if [ "$topic" != "" ]; then
-    case "$topic" in
-      *[!a-z0-9-]* | -* | *-)
-        printf 'Topic slug must be kebab-case: lowercase letters, numbers, and hyphens only.\n' >&2
-        exit 1
-        ;;
-    esac
+    if ! is_strict_kebab_slug "$topic"; then
+      printf 'Topic slug must be kebab-case: lowercase letters, numbers, and single hyphens only.\n' >&2
+      exit 1
+    fi
 
     if is_generic_name "$topic"; then
       printf 'Topic slug is too generic. Use a meaningful request, feature, ticket, or investigation name.\n' >&2
@@ -131,12 +127,10 @@ create_document() {
 validate_workspace_name() {
   local name="$1"
 
-  case "$name" in
-    *[!a-z0-9-]* | -* | *-)
-      printf 'Workspace name must be kebab-case: lowercase letters, numbers, and hyphens only.\n' >&2
-      exit 1
-      ;;
-  esac
+  if ! is_strict_kebab_slug "$name"; then
+    printf 'Workspace name must be kebab-case: lowercase letters, numbers, and single hyphens only.\n' >&2
+    exit 1
+  fi
 
   if is_generic_name "$name"; then
     printf 'Workspace name is too generic. Use a meaningful project, module, feature, or outcome name.\n' >&2
@@ -147,12 +141,10 @@ validate_workspace_name() {
 validate_topic_slug() {
   local topic="$1"
 
-  case "$topic" in
-    *[!a-z0-9-]* | -* | *-)
-      printf 'Topic slug must be kebab-case: lowercase letters, numbers, and hyphens only.\n' >&2
-      exit 1
-      ;;
-  esac
+  if ! is_strict_kebab_slug "$topic"; then
+    printf 'Topic slug must be kebab-case: lowercase letters, numbers, and single hyphens only.\n' >&2
+    exit 1
+  fi
 
   if is_generic_name "$topic"; then
     printf 'Topic slug is too generic. Use a meaningful request, feature, ticket, or investigation name.\n' >&2

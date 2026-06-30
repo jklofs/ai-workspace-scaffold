@@ -1,6 +1,6 @@
 # Workspace Template
 
-Copy this structure when creating a new project, module, or feature workspace.
+Create this structure with `./scripts/scaffold.sh create <workspace-name>` when starting a new project, module, or feature workspace.
 
 ```text
 workspaces/<workspace-name>/
@@ -11,6 +11,7 @@ workspaces/<workspace-name>/
 ├── requirements/
 ├── tech-spec/
 ├── implementation/
+├── worklog/
 └── review/
 ```
 
@@ -20,7 +21,7 @@ workspaces/<workspace-name>/
 - Do not use generic workspace names such as `request`, `task`, `workspace`, `notes`, `misc`, or `temp`.
 - Pick a stable topic slug for each work item and reuse it across phases.
 - Do not create generic phase files such as `request.md`, `requirements.md`, `notes.md`, `draft.md`, `spec.md`, `implementation.md`, or `review.md`.
-- Example: `raw-input/create-user-table.md`, `requirements/create-user-table.md`, `tech-spec/create-user-table.md`, `implementation/create-user-table.md`.
+- Example: `raw-input/create-user-table.md`, `requirements/create-user-table.md`, `tech-spec/create-user-table.md`, `implementation/create-user-table.md`, `worklog/create-user-table.md`, `review/create-user-table.md`.
 
 ## Root README Template
 
@@ -30,4 +31,4 @@ Keep root README changes in that file so generated workspaces and template docum
 
 ## Phase Document Templates
 
-Phase directory README files explain what belongs in each directory. Copyable document templates live in [../documents/](../documents/).
+Phase directory README files explain what belongs in each directory. Create phase documents with `./scripts/scaffold.sh create-doc <workspace-name> <phase|all> <topic-slug>`; use templates in [../documents/](../documents/) manually only when the CLI cannot express the specialized file.

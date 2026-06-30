@@ -42,6 +42,7 @@ lint_scaffold() {
       "[One clear sentence describing the desired outcome.]" \
       "[What this workspace covers]" \
       "[What this workspace intentionally excludes]" \
+      "[raw-input | discovery | context | requirements | tech-spec | implementation | worklog | review]" \
       "[raw-input | discovery | context | requirements | tech-spec | implementation | review]" \
       "<why this workspace uses this amount of process>" \
       "[Where the work currently stands.]" \
@@ -174,6 +175,8 @@ EOF
     done < <(
       find "$SCAFFOLD_ROOT" \
         -path "$SCAFFOLD_ROOT/.git" -prune -o \
+        -path "$SCAFFOLD_ROOT/.omo" -prune -o \
+        -path "$SCAFFOLD_ROOT/.opencode/node_modules" -prune -o \
         -path "$SCAFFOLD_ROOT/repos" -prune -o \
         -type f -name '*.md' -print | sort
     )
@@ -192,6 +195,7 @@ EOF
   require_file "wiki/ingest-queue.md"
   require_file "templates/workspace-root.md"
   require_executable "scripts/scaffold.sh"
+  require_executable "scripts/opencode.sh"
   require_executable "scripts/codex.sh"
   require_executable "scripts/claude.sh"
   require_dir "templates/workspace"

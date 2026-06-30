@@ -29,6 +29,7 @@ workspaces/user-management/
 ├── requirements/
 ├── tech-spec/
 ├── implementation/
+├── worklog/
 └── review/
 ```
 
@@ -41,6 +42,8 @@ workspaces/user-management/tech-spec/create-user-table.md
 ```
 
 After creation, update the workspace root `README.md` and capture original source materials in `raw-input/`.
+
+Workspace names and topic slugs must be kebab-case: lowercase letters, digits, and single hyphens only, with an alphanumeric first and last character.
 
 Use meaningful names for both workspaces and phase documents. For one work item, keep the same topic slug across phases:
 
@@ -103,7 +106,7 @@ Run a structural health check:
 ./scripts/scaffold.sh lint
 ```
 
-This checks required root files, executable scaffold scripts, workspace phase README files, document template coverage, workspace root README placeholders, wiki index coverage in both directions, local Markdown link targets, non-standard workspace directories (with a canonical-name suggestion when the directory is a recognized variant, e.g. `tests/` → `test-cases/`), phase document naming warnings, ignored local noise files, and `git diff --check`.
+This checks required root files, executable scaffold scripts, workspace phase README files, document template coverage, workspace root README placeholders, wiki index coverage in both directions, local Markdown link targets, non-standard workspace directories (with a canonical-name suggestion when the directory is a recognized variant, e.g. `tests/` → `test-cases/`), phase document naming warnings, ignored local noise files, and `git diff --check`. Runtime/generated directories such as `.omo/`, `.opencode/node_modules/`, and implementation repositories under `repos/` are excluded from Markdown link checks.
 
 ## Generate Ingest Queue
 
@@ -153,11 +156,28 @@ Safety notes:
 
 ## Agent Launch Helpers
 
-Launch Codex or Claude from the scaffold root with elevated local permissions:
+Launch OpenCode, Codex, or Claude from the scaffold root:
 
 ```sh
+./scripts/opencode.sh
 ./scripts/codex.sh
 ./scripts/claude.sh
 ```
 
 These helpers are convenience wrappers for local maintainer use. They forward any extra arguments to the underlying CLI.
+
+`./scripts/opencode.sh` continues a configured OpenCode session by default so it behaves like a persistent project assistant without accidentally jumping to whichever session was updated most recently. Configure the default session with either an environment variable or a local ignored file:
+
+```sh
+OPENCODE_SESSION_ID=ses_xxx ./scripts/opencode.sh
+printf '%s\n' ses_xxx > .opencode/session-id
+./scripts/opencode.sh
+```
+
+Pass explicit arguments to override the configured default:
+
+```sh
+./scripts/opencode.sh .                  # start a fresh TUI session at the scaffold root
+./scripts/opencode.sh --session ses_xxx   # continue a specific session
+./scripts/opencode.sh run "check status"  # run a one-shot prompt
+```

@@ -1,0 +1,3 @@
+[submodule "repos/hello"]
+	path = repos/hello
+	url = https://github.com/david-a-wheeler/hello.git

@@ -22,7 +22,7 @@ Short description of the module, feature, or project.
 
 ## Current Phase
 
-[raw-input | discovery | context | requirements | tech-spec | implementation | review]
+[raw-input | discovery | context | requirements | tech-spec | implementation | worklog | review]
 
 ## Phase Mode
 
@@ -64,6 +64,7 @@ raw-input/<topic-slug>.md
 requirements/<topic-slug>.md
 tech-spec/<topic-slug>.md
 implementation/<topic-slug>.md
+worklog/<topic-slug>.md
 review/<topic-slug>.md
 ```
 

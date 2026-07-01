@@ -4,6 +4,7 @@
 # Env
 .env
 .claude/
+.opencode/session-id
 .scaffold-updates/
 
 # Files
